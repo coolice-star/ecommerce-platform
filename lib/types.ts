@@ -28,6 +28,7 @@ export interface User {
   name: string
   email: string
   isAdmin: boolean
+  createdAt: string
 }
 
 export interface CartItem {
@@ -48,6 +49,7 @@ export interface Comment {
 export interface Order {
   id: string
   userId: string
+  user?: User
   items: CartItem[]
   status: "pending" | "processing" | "shipped" | "delivered" | "cancelled"
   totalAmount: number

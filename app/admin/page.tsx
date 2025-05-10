@@ -406,7 +406,7 @@ export default function AdminDashboard() {
                 {users.map((user) => (
                   <TableRow key={user.id}>
                     <TableCell className="font-mono text-sm">{user.id}</TableCell>
-                    <TableCell className="font-medium">{user.username}</TableCell>
+                    <TableCell className="font-medium">{user.name}</TableCell>
                     <TableCell>{user.email}</TableCell>
                     <TableCell className="text-center">
                       <Badge variant={user.isAdmin ? "default" : "outline"}>
@@ -453,7 +453,7 @@ export default function AdminDashboard() {
                 {orders.map((order) => (
                   <TableRow key={order.id}>
                     <TableCell className="font-mono text-sm">{order.id}</TableCell>
-                    <TableCell className="font-medium">{order.user?.username || "未知用户"}</TableCell>
+                    <TableCell className="font-medium">{order.user?.name || "未知用户"}</TableCell>
                     <TableCell className="text-center">{order.items?.length || 0}</TableCell>
                     <TableCell className="text-right">¥{order.totalAmount.toFixed(2)}</TableCell>
                     <TableCell className="text-center">
@@ -466,7 +466,7 @@ export default function AdminDashboard() {
                             : order.status === "shipped"
                             ? "default"
                             : order.status === "delivered"
-                            ? "success"
+                            ? "default"
                             : "destructive"
                         }
                       >
